@@ -1,27 +1,21 @@
-
-import React, { useState } from "react";
+import React from "react";
 import './../styles/App.css';
-import Tool from "./Tooltip";
+import Tooltip from "./Tooltip";
+
 const App = () => {
-  const [value,setvalue]=useState(false);
-  const [svalue,Setvalue]=useState(false);
-  const handleClickenter=()=>{
-    setvalue(true);
-  }
-  const handleClickleave=()=>{
-    setvalue(false);
-  }
-  const handleclickenter=()=>{
-    Setvalue(true);
-  }
-  const handleclickleave=()=>{
-    Setvalue(false);
-  }
   return (
     <div>
-       <Tool value={value} enter={handleClickenter} leave={handleClickleave} svalue={svalue} Enter={handleclickenter} Leave={handleclickleave}/>
+      <h2 class="tooltip">
+        <Tooltip text="This is a tooltip">Hover over me</Tooltip>
+      </h2>
+      <br />
+      <p class="tooltip">
+        <Tooltip text="This is another tooltip">
+          Hover over me to see another tooltip
+        </Tooltip>
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

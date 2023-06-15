@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Tool=({value,enter,leave,svalue,Enter,Leave})=>{
-return(
-    <div >
-      <div className="tooltiptext" onMouseEnter={enter} onMouseLeave={leave}><h2 className="tootip">Hover over me</h2> {value?<p className="tootip">This is a Tooltip</p>:null}</div>
-      <div className="tooltiptext" onMouseEnter={Enter} onMouseLeave={Leave}><h2 className="tootip">Hover over me to see another Tooltip</h2> {svalue?<p className="tootip">This is a Tooltip of another toolkit</p>:null}</div>
+const Tooltip = ({ text, children }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      {children}
+      {showTooltip && <div className="tooltiptext">{text}</div>}
     </div>
-)
-}
+  );
+};
 
-
-export default Tool;
+export default Tooltip;
